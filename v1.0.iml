@@ -62,5 +62,12 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.0.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.0.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.csg.itms.edic:V1.0-SNAP:v1.0" level="project" />
+    <orderEntry type="library" name="Maven: org:junit:v4.8.1" level="project" />
+    <orderEntry type="library" name="Maven: com.esms.common.entity:postmsg-ump:2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.esms.common.entity:protobuf-java:2.4.1" level="project" />
+    <orderEntry type="library" name="Maven: com.esms.common.entity:xw-protobuf:v0.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.esms.commons:codec:v1.4" level="project" />
+    <orderEntry type="library" name="Maven: com.esms.commons:io:v1.3.2" level="project" />
+    <orderEntry type="library" name="Maven: com.esms.commons:pool:v1.5.4" level="project" />
   </component>
 </module>

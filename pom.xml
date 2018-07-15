@@ -62,6 +62,42 @@
             <version>v1.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org</groupId>
+            <artifactId>junit</artifactId>
+            <version>v4.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.esms.common.entity</groupId>
+            <artifactId>postmsg-ump</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.esms.common.entity</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>2.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.esms.common.entity</groupId>
+            <artifactId>xw-protobuf</artifactId>
+            <version>v0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.esms.commons</groupId>
+            <artifactId>codec</artifactId>
+            <version>v1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.esms.commons</groupId>
+            <artifactId>io</artifactId>
+            <version>v1.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.esms.commons</groupId>
+            <artifactId>pool</artifactId>
+            <version>v1.5.4</version>
+        </dependency>
+
         <!--数据库连接jdbc依赖
         <dependency>
             <groupId>org.springframework.boot</groupId>
