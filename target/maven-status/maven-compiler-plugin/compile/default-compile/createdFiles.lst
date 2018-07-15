@@ -1,0 +1,5 @@
+org/rest/alert/dao/messageBean.class
+org/rest/alert/controller/baseController.class
+org/rest/alert/service/sender.class
+org/rest/alert/Connector.class
+org/rest/alert/service/configure.class

@@ -1,0 +1,18 @@
+server:
+  port: 3375
+  address: 0.0.0.0
+
+logging:
+  file: alert.log
+  path: /var/log/alert
+
+mq:
+  address: 10.150.68.133
+  port: 60001
+
+app:
+  id: ""
+  password: ""
+
+bus:
+  subject: CSGC2NARIAlertSend
