@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import org.rest.alert.service.sender;
 import org.rest.alert.dao.messageBean;
 import org.rest.alert.service.configure;
+import org.rest.alert.service.smsSender;
+
+import java.util.ArrayList;
 
 @RestController
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
@@ -26,6 +29,24 @@ public class baseController {
     @Value("${bus.subject}")
     private String subject;
 
+    @Value("${auth.name}")
+    private String name;
+
+    @Value("${auth.password}")
+    private String passwd;
+
+    @Value("${address.down.ip}")
+    private String gw_down_ip;
+
+    @Value("${address.down.port}")
+    private int gw_down_port;
+
+    @Value("${address.up.ip}")
+    private String gw_up_ip;
+
+    @Value("${address.up.port}")
+    private int gw_up_port;
+
     @RequestMapping("/")
     public String base(){
         return "200";
@@ -44,5 +65,15 @@ public class baseController {
         else {
             return 0;
         }
+    }
+
+    @RequestMapping(value = "/sms", method = RequestMethod.POST)
+    public int smsController(@RequestBody messageBean messageBean){
+        smsSender smser = new smsSender();
+        smser.init(name, password, gw_down_ip, gw_down_port, gw_up_ip, gw_up_port);
+        ArrayList<String> E = new ArrayList<String>();
+        E.add(messageBean.getSendto());
+        smser.sms_biz_sendsms(smser, messageBean.getAlarmContent(), E);
+        return 200;
     }
 }
