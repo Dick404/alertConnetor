@@ -3,8 +3,8 @@ package org.rest.alert.dao;
 import java.io.Serializable;
 
 public class messageBean {
-    private String areaCode; //单位编码
-    private String id;      //资产编号
+    private String areaCode;    //单位编码
+    private String id;          //资产编号
     private String originalID;  // 原系统ID 非必填
     private String iPAddress;   // 告警IP
     private String alarmID;     // 告警编号
@@ -22,6 +22,8 @@ public class messageBean {
     private String scene;         // 厂家英文名称
     private String time;          // 消息发送时间
     private String mainData;      // 主数据 AlarmID =$告警ID
+    private String sendto;        // 短信发送人手机号码
+    private String subject;       // 告警主题
 
     public String getAreaCode() {
         return areaCode;
@@ -173,5 +175,21 @@ public class messageBean {
 
     public void setMainData(String mainData) {
         this.mainData = mainData;
+    }
+
+    public String getSendto() {
+        return sendto;
+    }
+
+    public void setSendto(String sendto) {
+        this.sendto = sendto;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }

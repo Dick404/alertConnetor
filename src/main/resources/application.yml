@@ -16,3 +16,15 @@ app:
 
 bus:
   subject: CSGC2NARIAlertSend
+
+auth:
+  name: admin
+  password: 123456
+
+address:
+  down:
+    ip: 127.0.0.1
+    port: 8080
+  up:
+    ip: 127.0.0.1
+    port: 8080

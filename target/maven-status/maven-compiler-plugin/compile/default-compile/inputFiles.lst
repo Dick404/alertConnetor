@@ -1,5 +1,7 @@
-/Users/gophic/Downloads/alertConnector/src/main/java/org/rest/alert/dao/messageBean.java
-/Users/gophic/Downloads/alertConnector/src/main/java/org/rest/alert/controller/baseController.java
-/Users/gophic/Downloads/alertConnector/src/main/java/org/rest/alert/service/configure.java
-/Users/gophic/Downloads/alertConnector/src/main/java/org/rest/alert/Connector.java
-/Users/gophic/Downloads/alertConnector/src/main/java/org/rest/alert/service/sender.java
+/Users/gophic/Desktop/客户创新中心/项目材料/南方电网鼎信1期项目/成果文件/alertConnector/src/main/java/org/rest/alert/service/sender.java
+/Users/gophic/Desktop/客户创新中心/项目材料/南方电网鼎信1期项目/成果文件/alertConnector/src/main/java/org/rest/alert/Connector.java
+/Users/gophic/Desktop/客户创新中心/项目材料/南方电网鼎信1期项目/成果文件/alertConnector/src/main/java/org/rest/alert/controller/baseController.java
+/Users/gophic/Desktop/客户创新中心/项目材料/南方电网鼎信1期项目/成果文件/alertConnector/src/main/java/org/rest/alert/dao/messageData.java
+/Users/gophic/Desktop/客户创新中心/项目材料/南方电网鼎信1期项目/成果文件/alertConnector/src/main/java/org/rest/alert/service/smsSender.java
+/Users/gophic/Desktop/客户创新中心/项目材料/南方电网鼎信1期项目/成果文件/alertConnector/src/main/java/org/rest/alert/dao/messageBean.java
+/Users/gophic/Desktop/客户创新中心/项目材料/南方电网鼎信1期项目/成果文件/alertConnector/src/main/java/org/rest/alert/service/configure.java
