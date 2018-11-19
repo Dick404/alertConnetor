@@ -3,8 +3,10 @@ server:
   address: 0.0.0.0
 
 logging:
-  file: alert.log
-  path: /var/log/alert
+  file: /var/log/alert/alert.log
+#  config: /usr/local/alert/etc/alert.xml
+#  level:
+#    org.rest.alert.service.smsSender: Debug
 
 mq:
   address: 10.150.68.133
@@ -28,3 +30,4 @@ address:
   up:
     ip: 127.0.0.1
     port: 8080
+

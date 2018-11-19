@@ -30,13 +30,12 @@ public class smsDemo {
         }
     }
     */
-    public static void extend(String content, String platform, String sendto) throws Exception{
+    public static void extend(String content, String sendto) throws Exception{
         Account ac = new Account("mas_dxypt", "zQC6f$7z");//
         PostMsg pm = new PostMsg();
         pm.getCmHost().setHost("10.91.1.151", 8090);//设置网关的IP和port，用于发送信息
         pm.getWsHost().setHost("10.91.1.151", 8088);//设置网关的 IP和port，用于获取账号信息、上行、状态报告等等
 
-        content = platform + "::" + content;
 //		/**代理上网设置,如果需要*/
 //		HostInfo proxyHost = new HostInfo("192.168.0.47", 1080);
 //		proxyHost.setType(HostInfo.ConnectionType.SOCKET4);  	//设置连接类型
@@ -85,10 +84,10 @@ public class smsDemo {
         //msgs.add(new MessageData("13430258222", content));
         //msgs.add(new MessageData("13430258333", content));
         pack.setMsgs(msgs);
-        System.out.println("message content is " + msgs.get( 0 ));
-        System.out.println(ac);
-        System.out.println(pm);
-        System.out.println( pack );
+        //System.out.println("message content is " + msgs.get( 0 ));
+        //System.out.println(ac);
+        //System.out.println(pm);
+        //System.out.println( pack );
 //		/** 组发，多号码多内容 */
 //		pack.setSendType(SendType.GROUP);
 //		msgs.add(new MessageData("13430258111", "短信组发测试111"));

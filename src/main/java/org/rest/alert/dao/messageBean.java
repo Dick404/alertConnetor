@@ -6,7 +6,7 @@ public class messageBean {
     private String areaCode;    //单位编码
     private String id;          //资产编号
     private String originalID;  // 原系统ID 非必填
-    private String iPAddress;   // 告警IP
+    private String ipAddress;   // 告警IP
     private String alarmID;     // 告警编号
     private String alarmCate;   // 告警分类
     private String alarmType;   // 告警类型
@@ -24,6 +24,8 @@ public class messageBean {
     private String mainData;      // 主数据 AlarmID =$告警ID
     private String sendto;        // 短信发送人手机号码
     private String subject;       // 告警主题
+    private String platform;      // 内外网云平台标识符
+    private String host;          // 告警主机名称
 
     public String getAreaCode() {
         return areaCode;
@@ -50,11 +52,11 @@ public class messageBean {
     }
 
     public String getiPAddress() {
-        return iPAddress;
+        return ipAddress;
     }
 
     public void setiPAddress(String iPAddress) {
-        this.iPAddress = iPAddress;
+        this.ipAddress = iPAddress;
     }
 
     public String getAlarmID() {
@@ -191,5 +193,50 @@ public class messageBean {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public String getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    @Override
+    public String toString() {
+        return "messageBean{" +
+                "areaCode='" + areaCode + '\'' +
+                ", id='" + id + '\'' +
+                ", originalID='" + originalID + '\'' +
+                ", iPAddress='" + ipAddress + '\'' +
+                ", alarmID='" + alarmID + '\'' +
+                ", alarmCate='" + alarmCate + '\'' +
+                ", alarmType='" + alarmType + '\'' +
+                ", alarmLevel='" + alarmLevel + '\'' +
+                ", alarmContent='" + alarmContent + '\'' +
+                ", alarmStatus='" + alarmStatus + '\'' +
+                ", firstTime='" + firstTime + '\'' +
+                ", endTime='" + endTime + '\'' +
+                ", alarmCount='" + alarmCount + '\'' +
+                ", closeTime='" + closeTime + '\'' +
+                ", orderID='" + orderID + '\'' +
+                ", className='" + className + '\'' +
+                ", scene='" + scene + '\'' +
+                ", time='" + time + '\'' +
+                ", mainData='" + mainData + '\'' +
+                ", sendto='" + sendto + '\'' +
+                ", subject='" + subject + '\'' +
+                ", platform='" + platform + '\'' +
+                ", host='" + host + '\'' +
+                '}';
     }
 }

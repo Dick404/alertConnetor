@@ -1,5 +1,6 @@
 package org.rest.alert.controller;
 
+import com.esms.common.entity.GsmsResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -8,6 +9,7 @@ import org.rest.alert.service.sender;
 import org.rest.alert.dao.messageBean;
 import org.rest.alert.service.configure;
 import org.rest.alert.service.smsSender;
+import org.rest.alert.service.smsDemo;
 
 import java.util.ArrayList;
 
@@ -67,13 +69,18 @@ public class baseController {
         }
     }
 
-    @RequestMapping(value = "/sms", method = RequestMethod.POST)
-    public int smsController(@RequestBody messageBean messageBean){
+    @RequestMapping(value = "/sender", method = RequestMethod.POST)
+    public void smsController(@RequestBody messageBean messageBean) throws Exception{
         smsSender smser = new smsSender();
-        smser.init(name, password, gw_down_ip, gw_down_port, gw_up_ip, gw_up_port);
         ArrayList<String> E = new ArrayList<String>();
         E.add(messageBean.getSendto());
-        smser.sms_biz_sendsms(smser, messageBean.getAlarmContent(), E);
-        return 200;
+        smser.start( messageBean.getAlarmContent(), E, messageBean.getAlarmLevel(), messageBean.getPlatform() );
+    }
+
+    @RequestMapping(value = "/sms", method = RequestMethod.POST)
+    public void demoController(@RequestBody messageBean messageBean) throws Exception {
+        String content = configure.configuration(messageBean);
+        System.out.println( "测试数据" + messageBean + "\n" );
+        smsDemo.extend(content, messageBean.getSendto());
     }
 }

@@ -17,61 +17,28 @@ import com.esms.common.entity.MTReport;
 import com.esms.common.entity.MTResponse;
 import com.esms.common.util.MediaUtil;
 import com.esms.MessageData;
+import org.apache.log4j.Logger;
+//import org.apache.logging.log4j.Logger;
 //import org.rest.alert.dao.messageData;
 
+public class smsSender{
 
+    public static Logger logger = Logger.getLogger(smsSender.class);
 
-class smsBase{
-    private Account account;
-    private PostMsg postmsg;
-
-    public void init(String name, String password, String gw_down_ip, int gw_down_port, String gw_up_ip, int gw_up_port){
-        Account ac = new Account(name, password);
+    public void start(String content, ArrayList<String> sendto, String flag, String platform)throws Exception{
+        Account ac = new Account("mas_dxypt", "zQC6f$7z");
         PostMsg pm = new PostMsg();
-        pm.getCmHost().setHost(gw_down_ip, gw_down_port);
-        pm.getWsHost().setHost(gw_up_ip, gw_up_port);
-        this.setAccount(ac);
-        this.setPostmsg(pm);
+        pm.getWsHost().setHost("10.91.1.151", 8090);
+        pm.getCmHost().setHost("10.91.1.151", 8088);
+        sms_biz_sendsms(ac, pm, content, sendto, flag, platform);
     }
 
-    public Account getAccount() {
-        return account;
+    public void sms_biz_sendsms(Account ac ,PostMsg pm,String content, ArrayList<String> sendto, String flag, String platform)throws Exception{
+        content = platform + "::" + content;
+        doSendSMS(ac, pm, content, sendto);
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-    public PostMsg getPostmsg() {
-        return postmsg;
-    }
-
-    public void setPostmsg(PostMsg postmsg) {
-        this.postmsg = postmsg;
-    }
-}
-
-public class smsSender extends smsBase {
-
-
-    public void init(){
-        Account ac = new Account("admin", "123456");
-        PostMsg pm = new PostMsg();
-        pm.getWsHost().setHost("127.0.0.1", 8080);
-        pm.getCmHost().setHost("127.0.0.1", 8080);
-        this.setAccount(ac);
-        this.setPostmsg(pm);
-    }
-
-    public void sms_biz_sendsms(smsSender smser ,String content, ArrayList<String> sendto){
-        if (smser != null){
-            smser = new smsSender();
-            smser.init();
-        }
-        smser.doSendSMS(smser.getAccount(), smser.getPostmsg(), content, sendto);
-    }
-
-    public void doSendSMS(Account ac, PostMsg pm, String content, ArrayList<String> sendto){
+    public void doSendSMS(Account ac, PostMsg pm, String content, ArrayList<String> sendto) throws Exception{
 
         MTPack pack = new MTPack();
         pack.setBatchID(UUID.randomUUID());
@@ -89,8 +56,10 @@ public class smsSender extends smsBase {
 //        msgs.add(new messageData("13430258222", content));
 //        msgs.add(new messageData("13430258333", content));
         pack.setMsgs(msgs);
-        System.out.println(msgs);
-
+        System.out.println("message content is " + msgs.get( 0 ));
+        System.out.println(ac);
+        System.out.println(pm);
+        System.out.println( pack );
         //		/** 组发，多号码多内容 */
 //		pack.setSendType(SendType.GROUP);
 //		msgs.add(new MessageData("13430258111", "短信组发测试111"));
@@ -101,13 +70,8 @@ public class smsSender extends smsBase {
         // 设置模板编号(静态模板将以模板内容发送; 动态模板需要发送变量值，JSON格式：[{"key":"变量名1","value":"变量值1"},{"key":"变量名2","value":"变量值2"}])
         //pack.setTemplateNo("test");
 
-        GsmsResponse resp = null;
-        try {
-            resp = pm.post(ac, pack);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println(resp);
 
+        //GsmsResponse resp = pm.post( ac, pack);
+        //System.out.println("connection result is " + resp);
     }
 }

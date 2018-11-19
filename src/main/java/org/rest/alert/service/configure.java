@@ -1,6 +1,11 @@
 package org.rest.alert.service;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.rest.alert.dao.messageBean;
+
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 
 public class configure {
     @Value("${mq.address}")
@@ -17,7 +22,6 @@ public class configure {
 
     @Value("${bus.subject}")
     private String subject;
-
 
     public String getAddress() {
         return address;
@@ -77,4 +81,27 @@ public class configure {
         this.setAddress(address);
         this.setId(appId);
     }
+
+    public static String configuration(messageBean message){
+
+
+        try{
+            System.out.println( message.getPlatform().getBytes("UTF-8") );
+        }catch (Exception e){
+            System.out.println( e );
+        }
+        String content = "报警平台为： " + message.getPlatform() + "\r\n";
+        content += "告警ID： " + message.getAlarmID() + "\r\n";
+        content += "告警触发器： " + message.getSubject() + "\r\n";
+        content += "告警主机： " + message.getHost() + "\r\n";
+        content += "告警主机IP： " + message.getiPAddress() + "\r\n";
+        content += "告警等级： " + message.getAlarmLevel() + "\r\n";
+        content += "告警内容： " + message.getAlarmContent() + "\r\n";
+        content += "告警时间： " + message.getTime() + "\r\n";
+        return content;
+    }
+
 }
+
+
+
